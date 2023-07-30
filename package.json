@@ -1,0 +1,23 @@
+{
+  "name": "urals-fnjs-function-serizlizer",
+  "version": "0.0.1",
+  "description": "Function serializer, inspired by stackoverfow answer: https://stackoverflow.com/questions/7395686/how-can-i-serialize-a-function-in-javascript",
+  "main": "js/src/index.js",
+  "scripts": {
+    "build:compile": "tsc",
+    "build:test": "tsc && mocha ./js/test/**/*.js"
+  },
+  "keywords": [
+    "uralsjs",
+    "function",
+    "serialize"
+  ],
+  "author": "Anatoly Starodubtsev <tostar74@mail.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^9.*",
+    "typescript": "^4.9.4",
+    "@types/mocha": "^9.*",
+    "@types/node": "^13.*"
+  }
+}
