@@ -1,6 +1,6 @@
 {
   "name": "urals-fnjs-function-serializer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Function serializer, inspired by stackoverfow answer: https://stackoverflow.com/questions/7395686/how-can-i-serialize-a-function-in-javascript",
   "main": "js/src/index.js",
   "scripts": {

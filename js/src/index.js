@@ -1,18 +1,4 @@
 "use strict";
-//Function.prototype.toJSON = function() {
-//    var parts = this
-//        .toString()
-//        .match(/^\s*function[^(]*\(([^)]*)\)\s*{(.*)}\s*$/)
-//    ;
-//    if (parts == null)
-//        throw 'Function form not supported';
-//
-//    return [
-//        'window.Function',
-//        parts[1].trim().split(/\s*,\s*/),
-//        parts[2]
-//    ];
-//};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deserialise = exports.deoptimize = exports.serialize = exports.optimize = void 0;
 function optimize(u) {
@@ -43,7 +29,6 @@ function optimize(u) {
 exports.optimize = optimize;
 function serialize(u) {
     var opt = optimize(u);
-    console.log("Optimized: ", opt);
     return JSON.stringify(opt);
 }
 exports.serialize = serialize;
@@ -69,9 +54,3 @@ function deserialise(u) {
     return deoptimize(deser);
 }
 exports.deserialise = deserialise;
-//Function.deserialise = function(key, data) {
-//    return (data instanceof Array && data[0] == 'window.Function') ?
-//        new (Function.bind.apply(Function, [Function].concat(data[1], [data[2]]))) :
-//        data
-//    ;
-//};

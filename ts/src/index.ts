@@ -1,18 +1,3 @@
-//Function.prototype.toJSON = function() {
-//    var parts = this
-//        .toString()
-//        .match(/^\s*function[^(]*\(([^)]*)\)\s*{(.*)}\s*$/)
-//    ;
-//    if (parts == null)
-//        throw 'Function form not supported';
-//
-//    return [
-//        'window.Function',
-//        parts[1].trim().split(/\s*,\s*/),
-//        parts[2]
-//    ];
-//};
-
 export function optimize(u: any): unknown {
     if((typeof u === "object") && (u !== null)) {
         const res = {}
@@ -39,7 +24,6 @@ export function optimize(u: any): unknown {
 
 export function serialize(u: any): string {
     const opt = optimize(u)
-    console.log("Optimized: ", opt)
     return JSON.stringify(opt)
 }
 
@@ -62,10 +46,3 @@ export function deserialise(u: string): unknown {
     const deser = JSON.parse(u)
     return deoptimize(deser)
 }
-
-//Function.deserialise = function(key, data) {
-//    return (data instanceof Array && data[0] == 'window.Function') ?
-//        new (Function.bind.apply(Function, [Function].concat(data[1], [data[2]]))) :
-//        data
-//    ;
-//};

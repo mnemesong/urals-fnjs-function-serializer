@@ -49,4 +49,24 @@ var index = __importStar(require("../src/index"));
         assert_1.default.strictEqual(deserialized.c[2](2, 5), 7);
         assert_1.default.strictEqual(deserialized.d, "alsd");
     });
+    (0, mocha_1.it)("test 2", function () {
+        var obj = {
+            a: function (a) { return Math.max.apply(Math, a.map(function (el) { return el.id; })) + 1; }
+        };
+        var serialized = index.serialize(obj);
+        var deserialized = index.deserialise(serialized);
+        console.log("serialized:", serialized);
+        console.log("deserialized:", deserialized);
+        console.log("deserialized.a:", deserialized.a.toString());
+        assert_1.default.strictEqual(deserialized.a([{ id: 3 }, { id: 5 }]), 6);
+    });
+    (0, mocha_1.it)("test 3", function () {
+        var f = function (a) { return Math.max.apply(Math, a.map(function (el) { return el.id; })) + 1; };
+        var serialized = index.serialize(f);
+        var deserialized = index.deserialise(serialized);
+        console.log("serialized:", serialized);
+        console.log("deserialized:", deserialized);
+        console.log("deserialized toString:", deserialized.toString());
+        assert_1.default.strictEqual(deserialized([{ id: 3 }, { id: 5 }]), 6);
+    });
 });
